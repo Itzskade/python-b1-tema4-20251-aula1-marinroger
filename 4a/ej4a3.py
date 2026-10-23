@@ -35,14 +35,32 @@ Exemple:
 
 """
 
-
+"""
 def descending_list_iterator(numbers_list):
     # Write here your code
-    pass
+    
+    result = []
+    while numbers_list:
+        i = 0
+        j = 0
+        candidato = numbers_list[0]
+        while i < len(numbers_list):
+            if candidato < numbers_list[i]:
+                candidato = numbers_list[i]
+                j = i
+            i += 1
+        result.append(candidato)
+        numbers_list.pop(j)
+    return iter(result)
+"""
+
+def descending_list_iterator(numbers_list):
+    return iter(sorted(numbers_list, reverse=True))
+
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
 
-# numeros = [2, 3, 6, 9, 11, 12, 15, 18]
-# print(list(descending_list_iterator(numeros)))  
+numeros = [2, 3, 6, 9, 11, 12, 15, 18]
+print(list(descending_list_iterator(numeros)))  

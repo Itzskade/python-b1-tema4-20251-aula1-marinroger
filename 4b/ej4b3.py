@@ -83,7 +83,13 @@ def create_list(length_list):
     """
 
     # Write here your code
-    pass
+    ram = []
+    if type(length_list) != int or length_list < 0:
+        raise ValueError("Introduce un entero válido")
+    for _ in range(length_list):
+        ram.append(random.randint(0, 100))
+    heap = copy.deepcopy(ram)
+    return (ram, heap)
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
